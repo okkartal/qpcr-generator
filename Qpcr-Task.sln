@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qpcr.Core", "Qpcr.Core\Qpcr.Core.csproj", "{B86AA4B9-9CF1-4A4A-B675-A412CEDE9652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qpcr.Core.Tests", "Qpcr.Core.Tests\Qpcr.Core.Tests.csproj", "{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B86AA4B9-9CF1-4A4A-B675-A412CEDE9652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86AA4B9-9CF1-4A4A-B675-A412CEDE9652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86AA4B9-9CF1-4A4A-B675-A412CEDE9652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86AA4B9-9CF1-4A4A-B675-A412CEDE9652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
