@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qpcr.Core", "Qpcr.Core\Qpcr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qpcr.Core.Tests", "Qpcr.Core.Tests\Qpcr.Core.Tests.csproj", "{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{72E5FD69-5110-44B2-A8FB-F3F96E58A92C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C8ED12-0B2B-45C7-9FAB-7F944042BC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72E5FD69-5110-44B2-A8FB-F3F96E58A92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72E5FD69-5110-44B2-A8FB-F3F96E58A92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72E5FD69-5110-44B2-A8FB-F3F96E58A92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72E5FD69-5110-44B2-A8FB-F3F96E58A92C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -13,23 +13,21 @@ namespace Qpcr.Core.Tests
        {
             yield return new  QpcrModel()
           {
-             Names = new string[,] {{"Sam 1", "Sam 2", "Sam 3"}, {"Sam 1", "Sam 2", "Sam 3"}},
-             NamesOfReagents = new string[,] {{"<Pink>", "<Green>"},},
-             listOfIntegers = new int[,] {{1, 2},},
-             MaximumNumberOfPlages = 1,
+             Names = new string[,] {{"Sample-1", "Sample-2", "Sample-3"},{"Sample-1", "Sample-2", "Sample-3"}},
+             NamesOfReagents = new string[,] {{"Pink", "Green"}},
+             listOfIntegers = new int[] {3, 2},
+             //MaximumNumberOfPlates = 1,
              PlateSize = 96
           };
 
-       }
-       
-       
+       } 
 
         [TestCaseSource("GetQpcrModel")]
         public void CallMethod_WhenQpcrGenerated_ReturnsTrue(QpcrModel model)
         {
            var result = new QpcrGenerator().GenerateQpcr(model);
            
-           Assert.IsTrue(result);
+           Assert.IsNotNull(result);
         }
     }
 }
