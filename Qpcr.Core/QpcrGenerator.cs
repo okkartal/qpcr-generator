@@ -9,7 +9,7 @@ namespace Qpcr.Core
 {
     public class QpcrGenerator
     {
-        public Cell[,] GenerateQpcr(QpcrModel model, bool generateVisualizeTable = true)
+        public Cell[,] GenerateQpcr(QpcrModel model)
         {
             ValidateQpcrModel(model);
 
@@ -17,16 +17,18 @@ namespace Qpcr.Core
 
             //combine all reagents in single list
             var reAgentList = new List<string>();
-            
+
             for (int i = 0; i < model.NamesOfReagents.Rank; i++)
             {
-                for (int j = 0; j <=model.NamesOfReagents.GetLength(i);j++)
+                for (int j = 0; j <= model.NamesOfReagents.GetLength(i); j++)
                 {
                     try
                     {
                         reAgentList.Add(model.NamesOfReagents[i, j]);
                     }
-                    catch{}
+                    catch
+                    {
+                    }
                 }
             }
 
@@ -53,33 +55,31 @@ namespace Qpcr.Core
                             //if maximum number of plates not exceeded
                             //if (model.MaximumNumberOfPlates == 0 || cellItems.Count > model.MaximumNumberOfPlates)
                             //{
-                                cellItems.Add(new CellItem()
-                                {
-                                    Name = model.Names[dimensionIndex, itemIndex],
-                                    ReAgent =   reAgentList[listOfIntegerLen],
-                                    Row_Coord = itemIndex,
-                                    Col_Coord = listOfIntegerCounter
-                                });
+                            cellItems.Add(new CellItem()
+                            {
+                                Name = model.Names[dimensionIndex, itemIndex],
+                                ReAgent = reAgentList[listOfIntegerLen],
+                                Row_Coord = itemIndex,
+                                Col_Coord = listOfIntegerCounter
+                            });
 
-                                cells[itemIndex, listOfIntegerCounter] = new Cell()
-                                {
-                                    Name = model.Names[dimensionIndex, itemIndex],
-                                    ReAgent = reAgentList[listOfIntegerLen]
-                                };
+                            cells[itemIndex, listOfIntegerCounter] = new Cell()
+                            {
+                                Name = model.Names[dimensionIndex, itemIndex],
+                                ReAgent = reAgentList[listOfIntegerLen]
+                            };
 
-                                ++listOfIntegerCounter;
-                            }
-                       // }
+                            ++listOfIntegerCounter;
+                        }
+
+                        // }
                     }
                 }
             }
 
-            if (generateVisualizeTable)
-            {
-                var boardSize = GetBoardSize(model.PlateSize);
+            var boardSize = GetBoardSize(model.PlateSize);
 
-                GenerateVisualizeTable(cellItems, boardSize.Item1, boardSize.Item2);
-            }
+            GenerateVisualizeTable(cellItems, boardSize.Item1, boardSize.Item2);
 
             return cells;
         }
@@ -98,7 +98,7 @@ namespace Qpcr.Core
             if (!AllReagentsNamesAreUnique(model.NamesOfReagents))
                 throw new Exception("All reagents names are not unique");
 
-          //  if (model.listOfIntegers.Length != model.NamesOfReagents.Length)
+            //  if (model.listOfIntegers.Length != model.NamesOfReagents.Length)
             //    throw new Exception("List of integer can not cover reagents length");
         }
 
@@ -145,7 +145,7 @@ namespace Qpcr.Core
                 {
                     var item = cellItems.Where(x => x.Row_Coord == i).FirstOrDefault(y => y.Col_Coord == j);
                     sb.Append($"{env.NewLine}<td style='width:10px;background-color:{item?.ReAgent};'>");
-                    sb.Append(item?.Name+" "+item?.ReAgent);
+                    sb.Append(item?.Name + " " + item?.ReAgent);
                     sb.Append("</td>");
                 }
 
