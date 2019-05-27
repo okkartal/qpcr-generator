@@ -17,8 +17,18 @@ namespace Qpcr.Core
 
             //combine all reagents in single list
             var reAgentList = new List<string>();
-            for (int i = 0; i < model.NamesOfReagents.Length; i++)
-                reAgentList.Add(model.NamesOfReagents[0, i]);
+            
+            for (int i = 0; i < model.NamesOfReagents.Rank; i++)
+            {
+                for (int j = 0; j <=model.NamesOfReagents.GetLength(i);j++)
+                {
+                    try
+                    {
+                        reAgentList.Add(model.NamesOfReagents[i, j]);
+                    }
+                    catch{}
+                }
+            }
 
 
             var cellItems = new List<CellItem>();
@@ -41,12 +51,12 @@ namespace Qpcr.Core
                             listOfIntegerItem++)
                         {
                             //if maximum number of plates not exceeded
-                            if (model.MaximumNumberOfPlates == 0 || cellItems.Count < model.MaximumNumberOfPlates)
-                            {
+                            //if (model.MaximumNumberOfPlates == 0 || cellItems.Count > model.MaximumNumberOfPlates)
+                            //{
                                 cellItems.Add(new CellItem()
                                 {
                                     Name = model.Names[dimensionIndex, itemIndex],
-                                    ReAgent = reAgentList[listOfIntegerLen],
+                                    ReAgent =   reAgentList[listOfIntegerLen],
                                     Row_Coord = itemIndex,
                                     Col_Coord = listOfIntegerCounter
                                 });
@@ -59,7 +69,7 @@ namespace Qpcr.Core
 
                                 ++listOfIntegerCounter;
                             }
-                        }
+                       // }
                     }
                 }
             }
@@ -88,8 +98,8 @@ namespace Qpcr.Core
             if (!AllReagentsNamesAreUnique(model.NamesOfReagents))
                 throw new Exception("All reagents names are not unique");
 
-            if (model.listOfIntegers.Length != model.NamesOfReagents.Length)
-                throw new Exception("List of integer can not cover reagents length");
+          //  if (model.listOfIntegers.Length != model.NamesOfReagents.Length)
+            //    throw new Exception("List of integer can not cover reagents length");
         }
 
         private bool PlateSizeIsValid(int plateSize)
@@ -135,7 +145,7 @@ namespace Qpcr.Core
                 {
                     var item = cellItems.Where(x => x.Row_Coord == i).FirstOrDefault(y => y.Col_Coord == j);
                     sb.Append($"{env.NewLine}<td style='width:10px;background-color:{item?.ReAgent};'>");
-                    sb.Append(item?.Name);
+                    sb.Append(item?.Name+" "+item?.ReAgent);
                     sb.Append("</td>");
                 }
 
