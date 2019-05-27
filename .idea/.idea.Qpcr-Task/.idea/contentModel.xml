@@ -31,6 +31,7 @@
       <e p="Qpcr-Task.sln" t="IncludeFlat" />
       <e p="Qpcr.Core" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Cell.cs" t="Include" />
         <e p="CellItem.cs" t="Include" />
         <e p="Constants.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
